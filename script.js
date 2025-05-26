@@ -34,3 +34,39 @@ function getHumanChoice() {
     return 0
 }
 
+function playRound(choice1, choice2) {
+    let state;
+
+    switch ([choice1, choice2].join(',')) {
+        case 'rock,paper':
+        case 'paper,scissors':
+        case 'scissors,rock':
+            state = 0
+            break;
+        case 'paper,rock':
+        case 'scissors,paper':
+        case 'rock,scissors':
+            state = 1
+            break;
+        default:
+            state = 2
+    }
+
+    if (state == 0) {
+        computerScore++;
+        console.log(`You lose! ${choice2} beats ${choice1}.`);
+    } else if (state == 1) {
+        humanScore++;
+        console.log(`You win! ${choice1} beats ${choice2}.`);
+    } else if (state == 2) {
+        console.log(`Tie! ${choice1} vs ${choice2}.`);
+    }
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+playRound(humanChoice, computerChoice);
+
