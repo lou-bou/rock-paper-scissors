@@ -14,3 +14,23 @@ function getComputerChoice() {
     }
     return choice
 }
+
+function getHumanChoice() {
+    // Get the user to choose rock, paper or scissors
+    let choice = prompt("Enter a valid choice: ");
+
+    if (choice != null) {
+        choice = choice.toLowerCase();
+        switch (choice) {
+        case "rock":
+        case "paper":
+        case "scissors":
+            return choice
+        default:
+            return 0 // 0 is returned if no valid choice is entered
+        }
+    }
+
+    return 0
+}
+
